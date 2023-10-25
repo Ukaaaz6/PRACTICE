@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator kosztów wynajmu fotobudki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .options {
+            margin-bottom: 10px;
+        }
+
+        .options img {
+            vertical-align: middle;
+            margin-bottom: -5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .options img:hover {
+            border-color: #181818;
+        }
+
+        .options input[type="radio"],
+        .options input[type="checkbox"] {
+            display: none;
+        }
+
+        .options input[type="radio"]:checked+label img,
+        .options input[type="checkbox"]:checked+label img {
+            border-color: #181818;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #181818;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .photobooth-options {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .option-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+        }
+
+        .option img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body style="background-color:#F7F7F7;">
+    <div class="container">
+        <h1>Kalkulator kosztów wynajmu fotobudki</h1>
+
+        <div class="options">
+<br>
+            <div class="photobooth-options">
+                <div class="option">
+                    <input type="radio" id="basic" name="photoboothType" value="basic">
+                    <label for="basic">
+                        <span class="option-content">
+                            <span class="option-text">Fotobudka<br>Klasyczna</span>
+                            <img src="https://fotoakuku.pl/lib/isnvgk/klasyk-lo3chazb.png" alt="Podstawowa fotobudka" width="90" height="90">
+                        </span>
+                    </label>
+                </div>
+
+        <div class="options">
+            <center>
+			<label for="hours">Liczba godzin wynajmu:</label><br><br>
+            <div class="hour-icons">
+                <input type="radio" id="hours2" name="hours" value="2">
+                <label for="hours2">
+                    <img src="https://fotoakuku.pl/lib/isnvgk/2-lo3ch6zh.png" alt="2 godziny" class="hour-icon" width="35" height="35">
+                </label>
+
+                <input type="radio" id="hours3" name="hours" value="3">
+                <label for="hours3">
+                    <img src="https://fotoakuku.pl/lib/isnvgk/3-lo3ch79o.png" alt="3 godziny" class="hour-icon" width="35" height="35">
+                </label>
+
+                <input type="radio" id="hours4" name="hours" value="4">
+                <label for="hours4">
+                    <img src="https://fotoakuku.pl/lib/isnvgk/4-lo3ch7ie.png" alt="4 godziny" class="hour-icon" width="35" height="35">
+                </label>
+
+                <input type="radio" id="hours5" name="hours" value="5">
+                <label for="hours5">
+                    <img src="https://fotoakuku.pl/lib/isnvgk/5-lo3ch7rh.png" alt="5 godzin" class="hour-icon" width="35" height="35">
+                </label>
+
+                <input type="radio" id="hours6" name="hours" value="6">
+                <label for="hours6">
+                    <img src="https://fotoakuku.pl/lib/isnvgk/6-lo3ch80n.png" alt="6 godzin" class="hour-icon" width="35" height="35">
+                </label>
+            </div>
+			</center>
+        </div>
+
+                <div class="option">
+                    <input type="radio" id="premium" name="photoboothType" value="premium">
+                    <label for="premium">
+                        <span class="option-content">
+                            <img src="https://fotoakuku.pl/lib/isnvgk/lustro-lo3chcq5.png" alt="Premium fotobudka" width="90" height="90">
+                            <span class="option-text">Fotobudka<br>FotoLustro</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+<center>
+        <div class="options">
+                <label for="distance">Odległość od centrum Warszawy:</label>
+                <input type="range" id="distanceSlider" min="0" max="350" value="0">
+                <input type="text" id="distanceInput" placeholder="0" maxlength="3" style="width: 40px;">
+                <span> km</span><br>
+                <span id="freeDistanceText">Dojazd GRATIS do</span>
+            </div>
+		</center>
+<hr>
+        <div class="options">
+		
+            <center><label><h3>W cenie pakietu:</h3></label><center>
+			
+ <table style="width: 100%;">
+        <tr>
+            <td>
+            <input type="checkbox" id="AlbumCheckbox" checked>
+            <label for="AlbumCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/album-lo3ch89m.png" alt="Album" width="40" height="40">
+                <span class="option-label">Album na wpisy</span>
+            </label><br><br>
+
+            <input type="checkbox" id="PisakiCheckbox" checked>
+            <label for="PisakiCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/pisaki-lo3cheeg.png" alt="Pisaki" width="40" height="40">
+                <span class="option-label">Pisaki i klej do wpisów</span>
+            </label><br><br>
+
+            <input type="checkbox" id="PendriveCheckbox" checked>
+            <label for="PendriveCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/pendrive-lo3che5f.png" alt="Pendrive" width="40" height="40">
+                <span class="option-label">Pendrive ze zdjęciami</span>
+            </label><br><br>
+
+            <input type="checkbox" id="GadżetyCheckbox" checked>
+            <label for="GadżetyCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/gadzety-lo3ch8we.png" alt="Gadżety" width="40" height="40">
+                <span class="option-label">Gadżety</span>
+            </label><br><br>
+
+            <input type="checkbox" id="LayoutCheckbox" checked>
+            <label for="LayoutCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/layout-lo3cnwsy.png" alt="layout" width="40" height="40">
+                <span class="option-label">Dowolny układ zdjęć</span>
+            </label><br><br>
+
+            <input type="checkbox" id="PropsyCheckbox" checked>
+            <label for="PropsyCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/propsy-lo3chgaj.png" alt="Propsy" width="40" height="40">
+                <span class="option-label">Propsy i tabliczki</span>
+            </label><br><br>
+</td><td>
+            <input type="checkbox" id="WydrukiCheckbox" checked>
+            <label for="WydrukiCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/wydruki-lo3chizh.png" alt="Wydruki" width="40" height="40">
+                <span class="option-label">Nielimitowane wydruki</span>
+            </label><br><br>
+
+            <input type="checkbox" id="GaleriaOnlineCheckbox" checked>
+            <label for="GaleriaOnlineCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/galeriaonline-lo3chact.png" alt="GaleriaOnline" width="40" height="40">
+                <span class="option-label">Galeria Online na 3 miesiące</span>
+            </label><br><br>
+
+            <input type="checkbox" id="TloCheckbox" checked>
+            <label for="TloCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/tlo-lo3chieg.png" alt="Tlo" width="40" height="40">
+                <span class="option-label">Dowolnie nasze tło fotograficzne</span>
+            </label><br><br>
+
+			<input type="checkbox" id="TransportCheckbox" checked>
+			<label for="TransportCheckbox">
+				<img src="https://fotoakuku.pl/lib/isnvgk/transport-lo3chinf.png" alt="Transport" width="40" height="40">
+				<span class="option-label" id="transportOptionLabel">Dojazd GRATIS</span>
+			</label>
+
+			<br><br>
+			
+            <input type="checkbox" id="AnimatorCheckbox" checked>
+            <label for="AnimatorCheckbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/animator-lo3ch8l4.png" alt="Animator" width="40" height="40">
+                <span class="option-label">Obsługa animatora</span>
+            </label><br><br>
+			
+</td></tr></table>
+<hr>
+<center><label><h3>Opcje dodatkowe:</h3></label><center>
+<table style="width: 100%;">
+        <tr>
+            <td>
+            
+
+            <input type="checkbox" id="premium1Checkbox">
+            <label for="premium1Checkbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/premium-lo3chg0q.png" alt="premium1" width="40" height="40">
+                <span class="option-label">premium1</span>
+            </label><br><br>
+
+            <input type="checkbox" id="premium2Checkbox">
+            <label for="premium2Checkbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/premium-lo3chg0q.png" alt="premium2" width="40" height="40">
+                <span class="option-label">premium2</span>
+            </label><br><br>
+</td><td>
+            <input type="checkbox" id="premium3Checkbox">
+            <label for="premium3Checkbox">
+                <img src="https://fotoakuku.pl/lib/isnvgk/premium-lo3chg0q.png" alt="premium3" width="40" height="40">
+                <span class="option-label">premium3</span>
+            </label><br><br>
+			</td></tr></table>
+        </div>
+
+        <button id="calculateButton"><b>Oblicz koszt</b></button>
+
+
+        <center><h2>
+            <p id="totalCost">Całkowity koszt wynajmu:</p>
+        </h2></center><br/><br/>
+		
+		<center>
+        <h2>Podaj swoje dane i wyślij zapytanie:</h2>
+        <form onsubmit="sendEmail(event)">
+            Imię: <input type="text" id="imie" required><br>
+            E-mail: <input type="email" id="email" required><br>
+            <input type="submit" value="Wyślij zapytanie" id="submitBtn">
+        </form>
+		<button id="submitBtn">Wyślij ZAPYTANIE</button>
+    </center>
+		
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+	
+
+}
+        var hourlyRates = {
+            basic: [600, 150, 290, 420, 570, 720],
+            premium: [700, 200, 380, 550, 750, 950]
+        };
+
+        var hourRadios = document.querySelectorAll('input[name="hours"]');
+        var photoboothRadios = document.querySelectorAll('input[name="photoboothType"]');
+        var distanceSlider = document.getElementById("distanceSlider");
+        var distanceInput = document.getElementById("distanceInput");
+        var freeDistanceText = document.getElementById("freeDistanceText");
+
+        distanceSlider.addEventListener("input", function () {
+            var distance = parseInt(distanceSlider.value);
+            distanceInput.value = distance;
+            updateFreeDistanceText();
+            calculateCost();
+        });
+
+        distanceInput.addEventListener("input", function () {
+            var distance = parseInt(distanceInput.value) || 0;
+            distanceSlider.value = distance;
+            updateFreeDistanceText();
+            calculateCost();
+        });
+
+        hourRadios.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                updateFreeDistanceText();
+                calculateCost();
+            });
+        });
+
+        photoboothRadios.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                updateFreeDistanceText();
+                calculateCost();
+            });
+        });
+
+        function updateFreeDistanceText() {
+            var hours = getSelectedHours();
+            var photoboothType = getSelectedPhotoboothType();
+            var freeDistance = 0;
+
+            if (hours === 2 || hours === 3) {
+                freeDistance = 30;
+            } else if (hours >= 4) {
+                freeDistance = 50;
+            }
+
+            freeDistanceText.textContent = "Dojazd GRATIS do " + freeDistance + " km ";
+        }
+
+        function getSelectedHours() {
+            var hours = 0;
+            hourRadios.forEach(function (radio) {
+                if (radio.checked) {
+                    hours = parseInt(radio.value);
+                }
+            });
+            return hours;
+        }
+
+        function getSelectedPhotoboothType() {
+            var photoboothType = 'basic';
+            photoboothRadios.forEach(function (radio) {
+                if (radio.checked) {
+                    photoboothType = radio.value;
+                }
+            });
+            return photoboothType;
+        }
+
+// Pobierz wszystkie elementy wpływające na koszt
+var allInputs = document.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="range"]');
+
+// Dodaj zdarzenie change do każdego elementu
+allInputs.forEach(function(input) {
+    input.addEventListener('change', function() {
+        updateFreeDistanceText();
+        calculateCost();
+    });
+});
+
+        function calculateCost() {
+            var hours = getSelectedHours();
+            var photoboothType = getSelectedPhotoboothType();
+            var distance = parseInt(distanceSlider.value);
+            var freeDistance = 0;
+
+            if (hours === 2 || hours === 3) {
+                freeDistance = 30;
+            } else if (hours >= 4) {
+                freeDistance = 50;
+            }
+
+            var additionalDistance = Math.max(0, distance - freeDistance);
+            var distanceCost = additionalDistance * 0.5;
+
+            var baseCost = hourlyRates[photoboothType][0];
+            var additionalHoursCost = hourlyRates[photoboothType][hours - 1];
+
+        var Album = document.getElementById("AlbumCheckbox").checked;
+        var Pendrive = document.getElementById("PendriveCheckbox").checked;
+        var Animator = document.getElementById("AnimatorCheckbox").checked;
+        var Gadżety = document.getElementById("GadżetyCheckbox").checked;
+        var Layout = document.getElementById("LayoutCheckbox").checked;
+        var Propsy = document.getElementById("PropsyCheckbox").checked;
+        var Transport = document.getElementById("TransportCheckbox").checked;
+        var Wydruki = document.getElementById("WydrukiCheckbox").checked;
+        var GaleriaOnline = document.getElementById("GaleriaOnlineCheckbox").checked;
+        var Tlo = document.getElementById("TloCheckbox").checked;
+ var premium1 = document.getElementById("premium1Checkbox").checked;
+    var premium2 = document.getElementById("premium2Checkbox").checked;
+    var premium3 = document.getElementById("premium3Checkbox").checked;
+
+    var premiumCost = (premium1 ? 50 : 0) + (premium2 ? 100 : 0) + (premium3 ? 150 : 0);
+
+
+
+        var AlbumCost = Album ? 0 : 0;
+        var PendriveCost = Pendrive ? 0 : 0;
+        var AnimatorCost = Animator ? 0 : 0;
+        var GadżetyCost = Gadżety ? 0 : 0;
+        var LayoutCost = Layout ? 0 : 0;
+        var PropsyCost = Propsy ? 0 : 0;
+        var WydrukiCost = Wydruki ? 0 : 0;
+        var TransportCost = Transport ? 0 : 0;
+        var GaleriaOnlineCost = GaleriaOnline ? 0 : 0;
+        var TloCost = Tlo ? 0 : 0;
+
+
+
+// Oblicz końcowy koszt wynajmu, uwzględniając dodatki premium
+    var totalCost = baseCost + additionalHoursCost + AlbumCost + PendriveCost + AnimatorCost + GadżetyCost + LayoutCost + PropsyCost + WydrukiCost + GaleriaOnlineCost + TloCost + TransportCost + premiumCost + distanceCost;
+
+    // Sprawdź, czy totalCost jest NaN, jeśli tak, ustaw go na 0
+    totalCost = isNaN(totalCost) ? 0 : totalCost;
+
+    document.getElementById("totalCost").textContent = "Całkowity koszt wynajmu: " + totalCost.toFixed(2) + " zł";
+	}
+	</script>
+	
+	
+	
+	
+	
+	<script>
+	emailjs.init("ofQKBJm5UhRqzuj7P"); // Podmień "twój_klucz_api" na swój klucz API od EmailJS
+
+var hourlyRates = {
+    basic: [600, 150, 290, 420, 570, 720],
+    premium: [700, 200, 380, 550, 750, 950]
+};
+
+var hourRadios = document.querySelectorAll('input[name="hours"]');
+var photoboothRadios = document.querySelectorAll('input[name="photoboothType"]');
+var distanceSlider = document.getElementById("distanceSlider");
+var distanceInput = document.getElementById("distanceInput");
+var freeDistanceText = document.getElementById("freeDistanceText");
+
+// Funkcja obliczająca koszt wynajmu
+function calculateCost() {
+    // Implementacja funkcji calculateCost, jaką podałem wcześniej
+    // ...
+}
+
+// Aktualizacja tekstu "Dojazd GRATIS do..."
+function updateFreeDistanceText() {
+    // Implementacja funkcji updateFreeDistanceText, jaką podałem wcześniej
+    // ...
+}
+
+// Obsługa zmian w formularzu
+var allInputs = document.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="range"]');
+
+allInputs.forEach(function (input) {
+    input.addEventListener('change', function () {
+        updateFreeDistanceText();
+        calculateCost();
+    });
+});
+
+// Funkcja do obsługi wysyłania emaila za pomocą EmailJS
+function sendEmail(event) {
+    event.preventDefault();
+
+    // Pobierz wartości z formularza
+    var imie = document.getElementById("imie").value;
+    var email = document.getElementById("email").value;
+
+    // Pobierz wartości opcji wybranych przez użytkownika
+    var Album = document.getElementById("AlbumCheckbox").checked;
+    var Pisaki = document.getElementById("PisakiCheckbox").checked;
+    var Pendrive = document.getElementById("PendriveCheckbox").checked;
+    var Gadzety = document.getElementById("GadzetyCheckbox").checked;
+    var Layout = document.getElementById("LayoutCheckbox").checked;
+    var Propsy = document.getElementById("PropsyCheckbox").checked;
+    var Wydruki = document.getElementById("WydrukiCheckbox").checked;
+    var GaleriaOnline = document.getElementById("GaleriaOnlineCheckbox").checked;
+    var Tlo = document.getElementById("TloCheckbox").checked;
+    var Transport = document.getElementById("TransportCheckbox").checked;
+    var Animator = document.getElementById("AnimatorCheckbox").checked;
+    var Premium1 = document.getElementById("premium1Checkbox").checked;
+    var Premium2 = document.getElementById("premium2Checkbox").checked;
+    var Premium3 = document.getElementById("premium3Checkbox").checked;
+
+    // Utwórz obiekt z wybranymi opcjami
+    var selectedOptions = {
+        Album: Album,
+        Pisaki: Pisaki,
+        Pendrive: Pendrive,
+        Gadzety: Gadzety,
+        Layout: Layout,
+        Propsy: Propsy,
+        Wydruki: Wydruki,
+        GaleriaOnline: GaleriaOnline,
+        Tlo: Tlo,
+        Transport: Transport,
+        Animator: Animator,
+        Premium1: Premium1,
+        Premium2: Premium2,
+        Premium3: Premium3
+    };
+
+    // Reszta kodu funkcji sendEmail bez zmian
+    var totalCost = document.getElementById("totalCost").textContent;
+
+    var templateParams = {
+        imie: imie,
+        email: email,
+        selectedOptions: JSON.stringify(selectedOptions),
+        totalCost: totalCost
+    };
+
+    // Wyślij email za pomocą EmailJS
+    emailjs.sendForm("service_pxtip9q", "template_3cxjn4n", templateParams)
+        .then(function (response) {
+            console.log("Email został pomyślnie wysłany!", response);
+            alert("Formularz został wysłany pomyślnie!");
+        }, function (error) {
+            console.error("Błąd podczas wysyłania formularza:", error);
+            alert("Wystąpił błąd podczas wysyłania formularza.");
+        });
+}
+
+// Obsługa kliknięcia przycisku "Oblicz koszt"
+document.getElementById("calculateButton").addEventListener("click", function () {
+    calculateCost();
+});
+
+// Obsługa przesłania formularza
+document.getElementById("submitBtn").addEventListener("click", function (event) {
+    event.preventDefault();
+    sendEmail(event);
+});
+</script>
+	</body>
+
+</html>
+	
+	
+	
+	
+	
+	
+	
+<!--
+	
+	emailjs.init("ofQKBJm5UhRqzuj7P");
+
+	document.getElementById("submitBtn").addEventListener("click", function(event) {
+    event.preventDefault();
+    sendEmail();
+});
+// Funkcja do obsługi wysyłania emaila za pomocą EmailJS
+        function sendEmail(event) {
+            event.preventDefault();
+
+            var imie = document.getElementById("imie").value;
+            var email = document.getElementById("email").value;
+            var selectedOptions = {
+                // Tutaj zbierz wszystkie opcje wybrane przez użytkownika (np. Album, Pendrive, itp.)
+            };
+            var totalCost = document.getElementById("totalCost").textContent;
+
+            var templateParams = {
+                imie: imie,
+                email: email,
+                selectedOptions: JSON.stringify(selectedOptions),
+                totalCost: totalCost
+            };
+
+            // Wyślij email za pomocą EmailJS
+        emailjs.sendForm("service_pxtip9q", "template_3cxjn4n", templateParams)
+            .then(function(response) {
+                console.log("Email został pomyślnie wysłany!", response);
+                alert("Formularz został wysłany pomyślnie!");
+            }, function(error) {
+                console.error("Błąd podczas wysyłania formularza:", error);
+                alert("Wystąpił błąd podczas wysyłania formularza.");
+            });
+    } else {
+        alert("Proszę wypełnić wszystkie pola formularza.");
+    }
+
+    </script>
+</body>
+
+</html>
+-->
